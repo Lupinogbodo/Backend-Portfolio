@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Home - Backend Portfolio{% endblock %}
+{% block content %}
+<section class="hero">
+    <h1>Nnaemeka Chikwendu-Ogbodo</h1>
+    <h2>Backend Developer</h2>
+    <p>Seasoned backend engineer with 3+ years of experience designing and delivering high-end, secure financial and web applications.</p>
+    <div class="contact-links">
+        <span>📞 +234 906 723 4213</span>
+        <span>📍 Lagos, NG</span>
+        <span>✉️ lupinogbodo@outlook.com</span>
+    </div>
+    <div class="hero-buttons">
+        <a href="/projects" class="button">View Projects</a>
+        <a href="/contact" class="button button-secondary">Contact Me</a>
+    </div>
+</section>
+
+<section class="skills-summary">
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+        <div class="skill-category">
+            <h3>Languages & Frameworks</h3>
+            <p>C#, .NET Core, ASP.NET Core, JavaScript/TypeScript, Node.js, Express.js, NestJS, Python (Django, Flask)</p>
+        </div>
+        <div class="skill-category">
+            <h3>Databases</h3>
+            <p>SQL Server, PostgreSQL, MongoDB</p>
+        </div>
+        <div class="skill-category">
+            <h3>DevOps & Tools</h3>
+            <p>Docker, Git, GitHub Actions, Jenkins, Azure DevOps</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

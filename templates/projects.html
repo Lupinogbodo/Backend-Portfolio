@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+{% block title %}Projects - Backend Portfolio{% endblock %}
+{% block content %}
+<section class="projects">
+    <h1>Key Projects</h1>
+    
+    <div class="project-list">
+        <div class="project-card">
+            <h2>Automated Settlement Solution</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Architected and implemented a .NET Core-based settlement portal that ingests daily transaction CSV/PDF uploads, auto-parses into tables, and supports line-by-line, split, and bulk disbursements.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Built a role-based UI/REST interface for settlement officers, sub-users, and admins with dashboard summaries (total/pending/failed/successful), interactive charts, audit logs and granular filtering</li>
+                    <li>Integrated secure OTP login, file-upload processing, background job scheduling (T+1 disbursement), and external SureGate payment APIs via webhook notifications</li>
+                    <li>Implemented business-unit and merchant-level reporting, automated email notifications, and end-to-end CSV/PDF parsing with real-time status updates</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">SQL Server</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">Background Jobs</span>
+                    <span class="tech-tag">Webhooks</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Polaris Account Creation & KYC API</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Designed REST endpoints for existing-account verification and new-customer onboarding using BVN/NIN lookup and OTP flows.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Integrated with Digital Banking and VULTe services to validate account status and fetch KYC fields; handled error-cases, retries, and status polling</li>
+                    <li>Ensured returned payloads included all required identity, demographic and next-of-kin details; enforced secure communications and input validation</li>
+                    <li>Built comprehensive Swagger documentation and collaborated with front-end and mobile teams to streamline the consultant-facing onboarding form</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">BVN/NIN Integration</span>
+                    <span class="tech-tag">Swagger</span>
+                    <span class="tech-tag">OTP Authentication</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>SaaS Subscription & License Management Platform</h2>
+            <p class="project-company">Freelance</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Architected a comprehensive subscription management system handling multi-tier plans, automated billing cycles, access control, and intelligent renewal processing for SaaS applications.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Built flexible subscription engine supporting free trials, monthly/annual plans, grace periods, and tiered feature access with role-based permissions and middleware-driven authorization</li>
+                    <li>Implemented Hangfire recurring jobs running daily checks to identify subscriptions expiring within 7 days, triggering automated email/SMS notifications via SendGrid and Twilio APIs</li>
+                    <li>Created auto-renewal payment processing workflow integrated with Paystack/Stripe, handling payment retries with exponential backoff, dunning management, and failed-payment recovery flows</li>
+                    <li>Designed subscription lifecycle state machine managing trial-to-paid conversions, plan upgrades/downgrades with prorated billing, cancellation workflows, and reactivation handling</li>
+                    <li>Built admin dashboard APIs for subscription analytics, churn metrics, MRR/ARR tracking, and detailed customer billing history with audit logs</li>
+                    <li>Implemented feature-flag system dynamically enabling/disabling application features based on active subscription tier and expiration status</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">Hangfire</span>
+                    <span class="tech-tag">Paystack/Stripe</span>
+                    <span class="tech-tag">Access Control</span>
+                    <span class="tech-tag">Twilio</span>
+                    <span class="tech-tag">Auto-Renewal</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Real-Time Transaction Reconciliation Engine</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Developed a high-performance reconciliation service that processes millions of daily transactions, matching internal records against external payment gateway responses and bank statements.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Implemented Hangfire-based background job scheduler to process large-volume reconciliation batches with configurable retry policies and dead-letter queue handling</li>
+                    <li>Built intelligent matching algorithms using transaction reference numbers, amounts, timestamps, and fuzzy-matching for partial data scenarios</li>
+                    <li>Created automated exception-handling workflows that flag discrepancies, generate variance reports, and trigger email alerts to finance teams</li>
+                    <li>Optimized SQL Server queries with indexed views and stored procedures, reducing reconciliation time from 6 hours to 45 minutes for daily batches</li>
+                    <li>Integrated with NIBSS (Nigeria Inter-Bank Settlement System) APIs for real-time transaction status verification</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">Hangfire</span>
+                    <span class="tech-tag">SQL Server</span>
+                    <span class="tech-tag">NIBSS API</span>
+                    <span class="tech-tag">Background Processing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Merchant Payment Gateway Integration Hub</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Built a centralized payment orchestration layer that unifies multiple third-party payment gateways (Paystack, Flutterwave, Interswitch) under a single API interface for merchant transactions.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Designed webhook relay system that normalizes incoming payment notifications from various providers into standardized event formats</li>
+                    <li>Implemented circuit breaker patterns and automatic failover logic to route transactions to backup gateways during downtime</li>
+                    <li>Built comprehensive audit logging system tracking all API calls, webhook deliveries, retry attempts, and settlement statuses</li>
+                    <li>Created merchant dashboard API endpoints for real-time transaction monitoring, settlement history, and analytics with granular date-range filtering</li>
+                    <li>Secured all endpoints using JWT authentication, IP whitelisting, and HMAC signature verification for webhook integrity</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">ASP.NET Core</span>
+                    <span class="tech-tag">Redis Cache</span>
+                    <span class="tech-tag">Circuit Breaker Pattern</span>
+                    <span class="tech-tag">JWT Auth</span>
+                    <span class="tech-tag">Webhook Processing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Automated KYC Document Verification System</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Engineered an end-to-end document verification pipeline that automates customer identity validation using AI-powered OCR, facial recognition, and government database lookups.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Integrated third-party OCR services to extract text from uploaded IDs (National ID, Driver's License, International Passport) with 95%+ accuracy</li>
+                    <li>Built asynchronous background workers using RabbitMQ to queue document processing jobs, decouple verification steps, and handle peak submission volumes</li>
+                    <li>Implemented real-time BVN/NIN verification via NIMC (National Identity Management Commission) APIs with automated retries and rate-limit handling</li>
+                    <li>Created liveness detection flows requiring customers to submit selfies, compared against ID photos using Azure Face API with confidence scoring</li>
+                    <li>Designed compliance workflows for manual review of flagged cases, escalation queues, and detailed audit trails meeting CBN regulatory requirements</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">C#</span>
+                    <span class="tech-tag">RabbitMQ</span>
+                    <span class="tech-tag">Azure Face API</span>
+                    <span class="tech-tag">NIMC Integration</span>
+                    <span class="tech-tag">OCR Processing</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Inter-Bank Transfer Processing Service</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Developed a robust NIP (NIBSS Instant Payment) integration service handling high-volume inter-bank transfers with guaranteed delivery and real-time status tracking.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Built event-driven architecture using MSSQL Service Broker for reliable message queuing and guaranteed transaction processing</li>
+                    <li>Implemented idempotency mechanisms using unique transaction references to prevent duplicate transfers during network failures or retry scenarios</li>
+                    <li>Created sophisticated webhook callback handlers that process asynchronous responses from NIBSS, update transaction statuses, and trigger customer notifications</li>
+                    <li>Designed daily batch reconciliation jobs comparing outbound transfers against NIBSS settlement files with automated discrepancy resolution</li>
+                    <li>Built rate-limiting middleware to comply with NIBSS throughput restrictions while maintaining optimal transaction processing speeds</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">Service Broker</span>
+                    <span class="tech-tag">NIP/NIBSS</span>
+                    <span class="tech-tag">Event-Driven Architecture</span>
+                    <span class="tech-tag">Idempotency</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Bulk Salary Disbursement Platform</h2>
+            <p class="project-company">Polaris Bank</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Architected a scalable salary payment system enabling corporate clients to upload employee lists and execute mass payroll disbursements with comprehensive approval workflows.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Built multi-level approval engine supporting maker-checker workflows, dual authorization, and role-based payment limits with complete audit logging</li>
+                    <li>Implemented chunked background processing using Quartz.NET to split large salary batches (10,000+ employees) into manageable sub-batches with parallel execution</li>
+                    <li>Created intelligent retry mechanism with exponential backoff for failed transfers, maintaining separate success/failure queues and automated reconciliation</li>
+                    <li>Designed scheduled disbursement feature allowing companies to pre-configure monthly salary runs with automatic execution on specified dates</li>
+                    <li>Built comprehensive reporting APIs generating payment summaries, failure analysis, beneficiary statements, and compliance reports exportable to Excel/PDF</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">.NET Core</span>
+                    <span class="tech-tag">Quartz.NET</span>
+                    <span class="tech-tag">SQL Server</span>
+                    <span class="tech-tag">Batch Processing</span>
+                    <span class="tech-tag">Workflow Engine</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <h2>Client CMS & E-Commerce Platforms</h2>
+            <p class="project-company">Freelance Projects</p>
+            <div class="project-description">
+                <p><strong>Overview:</strong> Developed and maintained multiple custom content management systems and e-commerce platforms for various clients.</p>
+                
+                <h3>Key Features:</h3>
+                <ul>
+                    <li>Custom-built administrative dashboards with real-time data visualization</li>
+                    <li>RESTful API services for seamless front-end integration</li>
+                    <li>Improved client workflows and enhanced data visibility</li>
+                    <li>Scalable architecture using modern JavaScript frameworks</li>
+                </ul>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">RESTful APIs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
